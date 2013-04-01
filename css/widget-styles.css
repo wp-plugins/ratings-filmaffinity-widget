@@ -1,0 +1,86 @@
+/*
+   Author:     Alberto Gil Tesa
+   WebSite:    http://giltesa.com
+   License:    CC BY-NC-SA 3.0
+               http://goo.gl/CTYnN
+
+   Project:    WordPress FilmAffinity Widget
+   File:       /css/widget-style.css
+   Date:       28/03/2013
+*/
+
+
+.user-info{
+    font-style: italic;
+    max-width: 100%;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.user-info #user, .user-info #avg, .user-info #rated{
+    display:inline-block;
+    width: 30%;
+}
+
+.user-info #user a{
+    text-decoration: none;
+}
+
+
+.films{
+    padding: 3%;
+}
+
+.item{
+    display: inline-block;
+    height:auto;
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+
+.t1x1, .t2x1{ width: 100%; }
+.t1x2, .t2x2{ width: 48%; }
+.t1x3, .t2x3{ width: 31%; }
+
+.note{
+    font: italic 900 0.9em/1.9em "Arial";
+    margin-bottom:6px;
+}
+
+.popup {
+    margin: 4px 0 -6px 0;
+}
+
+.content {
+    background: #F7F7F7;
+    border: 1px solid #DFDFDF;
+    border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    margin-left: -400px;
+    padding: 10px;
+    position: absolute;
+    text-align: justify;
+    visibility: hidden;
+    width: 400px;
+    z-index: 10;
+}
+
+.popup:hover .content {
+	visibility:visible;
+}
+
+.popup div.content h1{
+    font-size: 1.4em;
+    margin-bottom:15px;
+}
+
+.popup div.content img{
+    float: left;
+    margin-right: 10px;
+}
+
+.popup div.content p{
+    margin:-5px 0 0 0;
+}
