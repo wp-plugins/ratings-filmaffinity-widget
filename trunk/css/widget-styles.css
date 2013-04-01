@@ -1,19 +1,20 @@
 /*
-   Plugin Name:   Ratings FilmAffinity Widget
-   Plugin URI:    http://giltesa.com
-   Author:        Alberto Gil Tesa
-   Author URI:    http://giltesa.com/sobre-mi/
-   
-   File:          widget-style.css
+   Author:     Alberto Gil Tesa
+   WebSite:    http://giltesa.com
+   License:    CC BY-NC-SA 3.0
+               http://goo.gl/CTYnN
+
+   Project:    WordPress FilmAffinity Widget
+   File:       /css/widget-style.css
+   Date:       28/03/2013
 */
 
 
 .user-info{
-    /*background:yellow;*/
+    font-style: italic;
     max-width: 100%;
     padding-bottom: 5px;
     text-align: center;
-    font-style:italic;
 }
 
 .user-info #user, .user-info #avg, .user-info #rated{
@@ -28,7 +29,6 @@
 
 .films{
     padding: 3%;
-    /*background:yellow;*/
 }
 
 .item{
@@ -37,7 +37,6 @@
     margin:0;
     padding:0;
     text-align: center;
-    /*background:orange;*/
 }
 
 .t1x1, .t2x1{ width: 100%; }
@@ -45,29 +44,27 @@
 .t1x3, .t2x3{ width: 31%; }
 
 .note{
-    margin-bottom:6px;
     font: italic 900 0.9em/1.9em "Arial";
+    margin-bottom:6px;
 }
 
 .popup {
     margin: 4px 0 -6px 0;
-    /*background:red;*/
 }
 
 .content {
-    position: absolute;
-    width: 400px;
-    padding: 10px;
+    background: #F7F7F7;
+    border: 1px solid #DFDFDF;
+    border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
     margin-left: -400px;
-	background: #F7F7F7;
-	border: 1px solid #DFDFDF;
-	border-radius: 0px 0px 0px 0px;
-	-moz-border-radius: 0px 0px 0px 0px;
-	-webkit-border-radius: 0px 0px 0px 0px;
-	text-align: justify;
-	visibility: hidden;
-	z-index: 10;	
-   /* margin-top: -76px;*/
+    padding: 10px;
+    position: absolute;
+    text-align: justify;
+    visibility: hidden;
+    width: 400px;
+    z-index: 10;
 }
 
 .popup:hover .content {

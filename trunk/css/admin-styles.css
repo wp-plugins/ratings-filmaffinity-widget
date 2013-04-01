@@ -1,10 +1,12 @@
 /*
-   Plugin Name:   Ratings FilmAffinity Widget
-   Plugin URI:    http://giltesa.com
-   Author:        Alberto Gil Tesa
-   Author URI:    http://giltesa.com/sobre-mi/
-   
-   File:          admin-style.css
+   Author:     Alberto Gil Tesa
+   WebSite:    http://giltesa.com
+   License:    CC BY-NC-SA 3.0
+               http://goo.gl/CTYnN
+
+   Project:    WordPress FilmAffinity Widget
+   File:       /css/admin-style.css
+   Date:       28/03/2013
 */
 
 
@@ -12,21 +14,21 @@
 	height: 22px;
 	margin: -32px 0px 0px 204px;
 	position: absolute;
-	width: 22px;	
+	width: 22px;
 }
 
 .popup div.content {
-	background: #F7F7F7;
-	margin-top:21px;
-	border: 1px solid #DFDFDF;
+    background: #F7F7F7;
+    border: 1px solid #DFDFDF;
 	border-radius: 0px 0px 0px 0px;
 	-moz-border-radius: 0px 0px 0px 0px;
 	-webkit-border-radius: 0px 0px 0px 0px;
-	margin-left: -204px;
-	padding: 10px;
-	text-align: justify;
-	visibility: hidden;
-	z-index: 10;	
+    margin-left: -204px;
+    margin-top: 21px;
+    padding: 10px;
+    text-align: justify;
+    visibility: hidden;
+    z-index: 10;
 }
 
 .popup:hover div.content {
@@ -34,7 +36,7 @@
 }
 
 .widefat.rfwid{
-	width: 90% !important; 
+	width: 90% !important;
 }
 
 .rfwselect{

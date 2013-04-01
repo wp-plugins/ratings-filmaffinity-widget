@@ -5,8 +5,8 @@
    License:    CC BY-NC-SA 3.0
                http://goo.gl/CTYnN
 
-   File:       Film.php
    Project:    WordPress FilmAffinity Widget
+   File:       \includes\Film.php
    Date:       28/03/2013
 */
 ?>
@@ -31,7 +31,7 @@
          * @param string $synopsis
          * @param string $note
          * @param string $link
-         * @param array  $image
+         * @param array  $dataImage
          */
         public function __construct( $title, $synopsis, $note, $link, $dataImage )
         {
@@ -138,6 +138,27 @@
 
 
         /**
+         * Download the image and save it in the temporary directory. Then returns the URL to the image.
+         * Descarga la imagen y la guarda en el directorio temporal. Despues devuelve la URL a la imagen.
+         *
+         * @param  String  $urlImage
+         * @param  String  $idWidget
+         * @param  String  $idImage
+         * @param  String  $sizeImage
+         * @return String
+         */
+        private function downloadImage( $urlImage, $idWidget, $idImage, $sizeImage )
+        {
+            $fileName = $idWidget . $idImage . $sizeImage . '.jpg';
+
+            copy( $urlImage, PLUGIN_LOCAL_PATH .'temp/'. $fileName );
+
+            return PLUGIN_URL_PATH .'temp/'. $fileName;
+        }
+
+
+
+        /**
          * Returns all the information of the movie.
          * Devuelve toda la informacion de la pelicula.
          *
@@ -155,28 +176,6 @@
                     . "</blockquote>]<br/>");
         }
 
-
-
-        /**
-         * Download the image and save it in the temporary directory. Then returns the URL to the image.
-         * Descarga la imagen y la guarda en el directorio temporal. Despues devuelve la URL a la imagen.
-         *
-         * http://www.desarrolloweb.com/manuales/75/
-         *
-         * @param  String  $urlImage
-         * @param  String  $idWidget
-         * @param  String  $idImage
-         * @param  String  $sizeImage
-         * @return String
-         */
-        private function downloadImage( $urlImage, $idWidget, $idImage, $sizeImage )
-        {
-            $fileName = $idWidget . $idImage . $sizeImage . '.jpg';
-
-            copy( $urlImage, PLUGIN_LOCAL_PATH .'temp/'. $fileName );
-
-            return PLUGIN_URL_PATH .'temp/'. $fileName;
-        }
 
 
     } // End Film class.
