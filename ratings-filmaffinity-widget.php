@@ -3,7 +3,7 @@
   Plugin Name:   Ratings FilmAffinity Widget
   Plugin URI:    http://giltesa.com
   Description:   <em>Ratings FilmAffinity Widget</em> shows the cover and information about the latest movies as voted by you on page FilmAffinity.
-  Version:       0.41
+  Version:       0.42
   Date:          01/04/2013
   Author:        Alberto Gil Tesa
   Author URI:    http://giltesa.com/sobre-mi/
@@ -46,8 +46,6 @@
 
     /**
      * Load the language file with all the text strings.
-     * http://codex.wordpress.org/Function_Reference/load_plugin_textdomain
-     * http://codex.wordpress.org/WordPress_in_Your_Language
      */
     load_plugin_textdomain( 'RFW', false, dirname(plugin_basename( __FILE__ )) . '/languages/' );
 
@@ -84,9 +82,6 @@
     /**
      * Class "RatingsFilmAffinityWidget" extends "WP_Widget" and contains methods for
      * initializing, updating data, display and control panel widget.
-     *
-     * http://codex.wordpress.org/Widgets_API
-     * http://www.tig12.net/downloads/apidocs/wp/wp-includes/WP_Widget.class.html
      */
     class RatingsFilmAffinityWidget extends WP_Widget
     {
@@ -141,11 +136,6 @@
 
         /**
          * Outputs the content of the widget
-         * http://es2.php.net/manual/es/function.date.php
-         * http://codex.wordpress.org/Class_Reference/wpdb
-         * http://www.lateralcode.com/store-array-database/
-         * http://www.freeformatter.com/base64-encoder.html
-         * http://www.blogdephp.com/como-calcular-la-diferencia-entre-dos-fechas-en-php-strtotime/
          *
          * @see WP_Widget::widget()
          * @param array $args     Widget arguments.
@@ -158,7 +148,6 @@
 
             $idWidget             = $this->number;
             $tableName            = $wpdb->prefix . PLUGIN_NAME_SHORT;
-
             $title                = apply_filters( 'widget_title', $instance['title'] );
             $id                   = $instance['id'];
             $language             = $instance['language'];
@@ -175,11 +164,13 @@
             $showMoreInfo         = ($instance['show_more_info'] == "on") ? true : false;
 
 
-            // Se intentan obtener los datos del widget de la base de datos:
+            /* *** OBTAINING THE DATA *** */
+
+
+            // Try to get data from the widget of the database:
             $dataWidget = $wpdb->get_row("SELECT * FROM $tableName WHERE id_widget = $idWidget");
 
-
-            // Si no hay datos se introducen por primera vez:
+            // If no data is entered for the first time:
             if( $dataWidget == null )
             {
                 $filmaffinity = new Filmaffinity($id, $language);
@@ -200,10 +191,8 @@
             }
             else
             {
-               // En caso de haber datos se comprueba si se han de actualizar o no:
-
+               // Otherwise, it is checked if it is necessary to update the data
                 $elapsedTime = strtotime('now') - strtotime($dataWidget->last_updated);
-                //echo "Faltan: ". ($updateTime - $elapsedTime) ." segundos.</b>"; // Eliminar
 
                 if( $elapsedTime >= $updateTime )
                 {
@@ -221,16 +210,12 @@
                         ),
                         array( 'id_widget' => $idWidget )
                     );
-
                     $dataWidget = $wpdb->get_row("SELECT * FROM $tableName WHERE id_widget = $idWidget");
                 }
-
             }
 
 
-
-
-            // Ahora se imprime la interfaz del widget:
+            /* *** PRESENTATION OF DATA *** */
 
 
             echo $before_widget;
@@ -271,7 +256,7 @@
             }
             echo "</div>";
 
-           
+
             echo $after_widget;
 
         } // End widget method.
@@ -370,19 +355,16 @@
 
 
         /**
-         * Al activar el plugin se crea una tabla en la base de datos que guarda toda la informacion de las peliculas.
-         *
-         * http://kimbriggs.com/computers/computer-notes/mysql-notes/mysql-data-types-50.file
+         * When activated the plugin creates a table in the database that stores all information of the films.
          */
         public function activate()
         {
             global $wpdb;
 
-            //create the name of the table including the wordpress prefix (wp_ etc)
-            // El nombre de la tabla esta formado del prefijo establecido en el fichero config.php y por el nombre del plugin en version corta:
+            // The name of the table is composed by the WP prefix and the short name of the plugin.
             $tableName = $wpdb->prefix . PLUGIN_NAME_SHORT;
 
-            //check if there are any tables of that name already
+            // Check if the table exists, and otherwise creates the table:
             if( $wpdb->get_var("SHOW TABLES LIKE '$tableName'") !== $tableName )
             {
                $sql = "CREATE TABLE $tableName (
@@ -401,11 +383,7 @@
 
 
         /**
-         * A safe way of removing a named option/value pair from the options database table.
-         * http://codex.wordpress.org/Function_Reference/delete_option
-         * http://wpengineer.com/35/wordpress-plugin-deinstall-data-automatically/
-         *
-         * Al desactivar el plugin se elimina la tabla de la base de datos.
+         * To disable the plugin is deleted the database table.
          */
         public function deactivate()
         {
@@ -422,7 +400,7 @@
 
 
         /**
-         * Cuando se desistala el plugin se eliminan las configuraciones del plugin
+         * Uninstalling the plugin erases all your settings.
          */
         public function uninstall()
         {

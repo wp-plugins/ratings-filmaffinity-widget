@@ -5,12 +5,9 @@
    License:    CC BY-NC-SA 3.0
                http://goo.gl/CTYnN
 
-   File:       Filmaffinity.php
    Project:    WordPress FilmAffinity Widget
+   File:       \includes\Filmaffinity.php
    Date:       28/03/2013
-
-   Notes:
-      http://simplehtmldom.sourceforge.net/
 */
 ?>
 <?php
@@ -95,8 +92,8 @@
             }
         }
 
-        
-                
+
+
         /**
          * Returns the total number of films voted.
          * Devuelve el numero total de peliculas votadas.
@@ -113,9 +110,9 @@
             {
                 return $this->page->find('#uprofile > div.user_data > div#stats > dl > dt', 1)->innertext;
             }
-        }        
-        
-        
+        }
+
+
 
         /**
          * Returns an array of films.
@@ -124,7 +121,7 @@
          * @param  Integer $numFilms
          * @param  Boolean $isGetDescription
          * @param  String  $idWidget
-         * @return array Film
+         * @return array   Film
          */
         public function getFilms( $numFilms, $isGetDescription=false, $idWidget )
         {
@@ -147,7 +144,7 @@
          * @param   Integer $numFilms
          * @param   Integer $isGetDescription
          * @param   String  $idWidget
-         * @return  array Film
+         * @return  array   Film
          */
         private function getFilmsES( $numFilms, $isGetDescription, $idWidget )
         {
@@ -201,12 +198,10 @@
                     }
 
 
-                    // Se crea una nueva Pelicula con los datos leidos:
-                    //$films[$countFilm] = new Film( $title, $synopsis, $note, $image, $link );
+                    // It creates a new movie with the data read:
                     $films[$countFilm] = new Film( $title, $synopsis, $note, $link, array('urlImage'=>$image, 'idWidget'=>$idWidget, 'idImage'=>$countFilm+1) );
                     $countFilm = $countFilm + 1;
 
-                    // Cuando se hayan leido las Films solicitadas se deja de iterar:
                     if( $countFilm == $numFilms || $countFilm == 22 )
                         return $films;
                 }
@@ -222,7 +217,7 @@
          * @param  Integer $numFilms
          * @param  Integer $isGetDescription
          * @param  String  $idWidget
-         * @return array Film
+         * @return array   Film
          */
         private function getFilmsEN( $numFilms, $isGetDescription, $idWidget )
         {
@@ -292,12 +287,10 @@
                     }
 
 
-                    // Se crea una nueva Pelicula con los datos leidos:
-                    //$films[$countFilm] = new Film( $title, $synopsis, $note, $link, $image );
+                    // It creates a new movie with the data read:
                     $films[$countFilm] = new Film( $title, $synopsis, $note, $link, array('urlImage'=>$image, 'idWidget'=>$idWidget, 'idImage'=>$countFilm+1) );
                     $countFilm = $countFilm + 1;
 
-                    // Cuando se hayan leido las Films solicitadas se deja de iterar:
                     if( $countFilm == $numFilms || $countFilm == 22 )
                         return $films;
                 }

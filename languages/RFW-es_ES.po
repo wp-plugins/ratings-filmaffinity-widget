@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ratings FilmAffinity Widget\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-01 02:03+0100\n"
-"PO-Revision-Date: 2013-04-01 02:03+0100\n"
+"POT-Creation-Date: 2013-04-01 18:37+0100\n"
+"PO-Revision-Date: 2013-04-01 18:38+0100\n"
 "Last-Translator: giltesa <giltesa@giltesa.com>\n"
 "Language-Team: giltesa.com <developer@giltesa.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,97 +17,95 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ratings-filmaffinity-widget.php:100
+#: ratings-filmaffinity-widget.php:95
 msgid "Ratings FilmAffinity Widget"
 msgstr "Ratings FilmAffinity Widget"
 
-#: ratings-filmaffinity-widget.php:102
+#: ratings-filmaffinity-widget.php:97
 msgid "Displays the latest films at FilmAffinity views."
 msgstr "Muestra las últimas películas vistas en FilmAffinity."
 
-#: ratings-filmaffinity-widget.php:245
+#: ratings-filmaffinity-widget.php:230
 msgid "Profile at FilmAffinity"
 msgstr "Perfil de FilmAffinity"
 
-#: ratings-filmaffinity-widget.php:246
+#: ratings-filmaffinity-widget.php:231
 msgid "His/her average rating"
 msgstr "Media votos"
 
-#: ratings-filmaffinity-widget.php:247
+#: ratings-filmaffinity-widget.php:232
 msgid "Total number of films voted"
 msgstr "Películas valoradas"
 
-#: ratings-filmaffinity-widget.php:303
+#: ratings-filmaffinity-widget.php:288
 msgid "Widget Title:"
 msgstr "Titulo del Widget:"
 
-#: ratings-filmaffinity-widget.php:307
+#: ratings-filmaffinity-widget.php:292
 msgid "FilmAffinity user ID:"
 msgstr "ID de FilmAffinity:"
 
-#: ratings-filmaffinity-widget.php:314
+#: ratings-filmaffinity-widget.php:299
 msgid "In this field you must enter the number or user ID of FilmAffinity.<br/>Este this hidden number, to locate it needs to go to the menu <em>My Ratings</em> then any of the rated movies must be pressed in <em>Share</em> and user number in the URL."
 msgstr "En este campo debe de introducir el número o ID de usuario de FilmAffinity.<br/>Este número esta escondido, para localizarlo debe de ir al menú <em>Mis votaciones</em> después en cualquiera de las películas votadas hay que pulsar en <em>Compartir</em> y el número de usuario <em>aparece en la URL</em>."
 
-#: ratings-filmaffinity-widget.php:322
+#: ratings-filmaffinity-widget.php:307
 msgid "FilmAffinity language:"
 msgstr "Idioma de FilmAffinity:"
 
-#: ratings-filmaffinity-widget.php:324
+#: ratings-filmaffinity-widget.php:309
 msgid "Spanish"
 msgstr "Español"
 
-#: ratings-filmaffinity-widget.php:325
+#: ratings-filmaffinity-widget.php:310
 msgid "English"
 msgstr "Ingles"
 
-#: ratings-filmaffinity-widget.php:329
+#: ratings-filmaffinity-widget.php:314
 msgid "Display mode <em>(rows x columns)</em>:"
 msgstr "Modo de visualización <em>(filas x columnas)</em>:"
 
-#: ratings-filmaffinity-widget.php:340
+#: ratings-filmaffinity-widget.php:325
 msgid "Update information each:"
 msgstr "Actualizar la información cada:"
 
-#: ratings-filmaffinity-widget.php:342
+#: ratings-filmaffinity-widget.php:327
 msgid "Every twelve hours"
 msgstr "Cada doce horas"
 
-#: ratings-filmaffinity-widget.php:343
+#: ratings-filmaffinity-widget.php:328
 msgid "Every day"
 msgstr "Cada día"
 
-#: ratings-filmaffinity-widget.php:344
+#: ratings-filmaffinity-widget.php:329
 msgid "Every week"
 msgstr "Cada semana"
 
-#: ratings-filmaffinity-widget.php:349
+#: ratings-filmaffinity-widget.php:334
 msgid "Show user"
 msgstr "Mostrar el usuario"
 
-#: ratings-filmaffinity-widget.php:352
+#: ratings-filmaffinity-widget.php:337
 msgid "Show the average votes"
 msgstr "Mostrar la media de votos"
 
-#: ratings-filmaffinity-widget.php:355
+#: ratings-filmaffinity-widget.php:340
 msgid "Show the number of films voted"
 msgstr "Mostrar el total de votos"
 
-#: ratings-filmaffinity-widget.php:358
+#: ratings-filmaffinity-widget.php:343
 msgid "Forcing big thumbnails"
 msgstr "Forzar carátulas en grande"
 
-#: ratings-filmaffinity-widget.php:361
+#: ratings-filmaffinity-widget.php:346
 msgid "Show movies note"
 msgstr "Mostrar la nota de las películas"
 
-#: ratings-filmaffinity-widget.php:364
+#: ratings-filmaffinity-widget.php:349
 msgid "It will show the title and description of films hovering above."
 msgstr "Se mostrara el titulo y la descripcion de las peliculas al pasar el raton por encima"
 
-#: ratings-filmaffinity-widget.php:364
+#: ratings-filmaffinity-widget.php:349
 msgid "Show description of movies"
 msgstr "Mostrar descripción de las películas"
 
-#~ msgid "Every minute"
-#~ msgstr "Cada minuto"
