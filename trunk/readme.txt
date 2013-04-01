@@ -4,9 +4,9 @@ Donate link: http://giltesa.com
 Tags: Filmaffinity, widget, Ratings, Film, Movie
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 0.40
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: trunk
 
 Ratings FilmAffinity Widget shows the cover and information about the latest movies as voted by you on page FilmAffinity.
 
