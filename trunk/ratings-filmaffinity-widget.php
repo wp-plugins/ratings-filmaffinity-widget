@@ -3,7 +3,7 @@
   Plugin Name:   Ratings FilmAffinity Widget
   Plugin URI:    http://giltesa.com
   Description:   <em>Ratings FilmAffinity Widget</em> shows the cover and information about the latest movies as voted by you on page FilmAffinity.
-  Version:       0.40
+  Version:       0.41
   Date:          01/04/2013
   Author:        Alberto Gil Tesa
   Author URI:    http://giltesa.com/sobre-mi/
@@ -426,9 +426,7 @@
          */
         public function uninstall()
         {
-            //delete_option('widget_ratingsfilmaffinitywidget');
-            echo "<br/>uninstall<br/>";
-            exit();
+            delete_option('widget_ratingsfilmaffinitywidget');
         }
 
 
