@@ -4,7 +4,7 @@ Donate link: http://giltesa.com
 Tags: Filmaffinity, widget, Ratings, Film, Movie
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 0.42
+Stable tag: 0.43
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
