@@ -3,8 +3,8 @@
   Plugin Name:   Ratings FilmAffinity Widget
   Plugin URI:    http://giltesa.com
   Description:   <em>Ratings FilmAffinity Widget</em> shows the cover and information about the latest movies as voted by you on page FilmAffinity.
-  Version:       0.42
-  Date:          01/04/2013
+  Version:       0.43
+  Date:          14/04/2013
   Author:        Alberto Gil Tesa
   Author URI:    http://giltesa.com/sobre-mi/
   License:       GPL2
@@ -159,7 +159,7 @@
             $showUser             = ($instance['show_user'] == "on") ? true : false;
             $showAvgVotes         = ($instance['show_avg_votes'] == "on") ? true : false;
             $showMoviesRated      = ($instance['movies_rated'] == "on") ? true : false;
-            $forcingBigThumbnails = ($instance['forcing_big_thumbnails'] == "on") ? true : false;
+            $forcingBigThumbnails = false; //($instance['forcing_big_thumbnails'] == "on") ? true : false;
             $showPunctuation      = ($instance['show_punctuation'] == "on") ? true : false;
             $showMoreInfo         = ($instance['show_more_info'] == "on") ? true : false;
 
@@ -339,9 +339,11 @@
                     <input type="checkbox" id="<?php echo $this->get_field_id('movies_rated'); ?>" name="<?php echo $this->get_field_name('movies_rated'); ?>" class="checkbox" <?php if($showMoviesRated != "") echo "checked='checked'" ?> />
                     <label for="<?php echo $this->get_field_id('movies_rated'); ?>"><?php _e('Show the number of films voted','RFW') ?></label>
                     <br>
+                    <!--
                     <input type="checkbox" id="<?php echo $this->get_field_id('forcing_big_thumbnails'); ?>" name="<?php echo $this->get_field_name('forcing_big_thumbnails'); ?>" class="checkbox" <?php if($forcingBigThumbnails != "") echo "checked='checked'" ?> />
                     <label for="<?php echo $this->get_field_id('forcing_big_thumbnails'); ?>"><?php _e('Forcing big thumbnails','RFW') ?></label>
                     <br>
+                    -->
                     <input type="checkbox" id="<?php echo $this->get_field_id('show_punctuation'); ?>" name="<?php echo $this->get_field_name('show_punctuation'); ?>" class="checkbox" <?php if($showPunctuation != "") echo "checked='checked'" ?> />
                     <label for="<?php echo $this->get_field_id('show_punctuation'); ?>"><?php _e('Show movies note','RFW') ?></label>
                     <br>
@@ -363,13 +365,16 @@
 
             // The name of the table is composed by the WP prefix and the short name of the plugin.
             $tableName = $wpdb->prefix . PLUGIN_NAME_SHORT;
+            
+            // Removes the table:
+            $wpdb->query( "DROP TABLE IF EXISTS $tableName;" );
 
             // Check if the table exists, and otherwise creates the table:
             if( $wpdb->get_var("SHOW TABLES LIKE '$tableName'") !== $tableName )
             {
                $sql = "CREATE TABLE $tableName (
                         id_widget     TINYINT UNSIGNED PRIMARY KEY,
-                        last_updated  DATETIME DEFAULT '0000-00-00 00:00:00' NOT NULL,
+                        last_updated  DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
                         user          VARCHAR(20),
                         avg_votes     VARCHAR(4),
                         movies_rated  VARCHAR(6),
@@ -392,8 +397,8 @@
 
             if( $wpdb->get_var("SHOW TABLES LIKE '$tableName'") === $tableName )
             {
-               $sql  = "DROP TABLE IF EXISTS $tableName;";
-               $wpdb->query( $sql );
+                $sql  = "DROP TABLE IF EXISTS $tableName;";
+                $wpdb->query( $sql );
             }
         }
 

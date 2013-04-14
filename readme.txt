@@ -2,7 +2,7 @@
 Contributors: giltesa
 Donate link: http://giltesa.com
 Tags: Filmaffinity, widget, Ratings, Film, Movie
-Requires at least: 3.5.1
+Requires at least: 3.1
 Tested up to: 3.5.1
 Stable tag: 0.42
 License: GPLv2 or later
@@ -25,7 +25,6 @@ You can choose from various display options such as:
 *   Show user.
 *   Show the average rating.
 *   Show the total votes.
-*   Forcing big caratulas.
 *   Show note movies.
 *   Show the description of the film.
 
@@ -40,7 +39,6 @@ Puede elegir entre varias opciones de visualización como:
 *   Mostrar el usuario.
 *   Mostrar la media de votos.
 *   Mostrar el total de votos.
-*   Forzar carátulas en grande.
 *   Mostrar la nota de las películas.
 *   Mostrar la descripción de las películas.
 
@@ -80,6 +78,9 @@ No. Con cada actualizacion hay que obtener todos los datos de FilmAffinity, si s
 
 
 == Changelog ==
+
+= Version 0.43 - 14 April 2013 =
+ * Modified the code to work with the new page FilmAffinity
 
 = Version 0.42 - 1 April 2013 =
  * Fixed small bugs

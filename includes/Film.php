@@ -7,7 +7,7 @@
 
    Project:    WordPress FilmAffinity Widget
    File:       \includes\Film.php
-   Date:       28/03/2013
+   Date:       14/04/2013
 */
 ?>
 <?php
@@ -16,10 +16,11 @@
     {
         private $title;
         private $synopsis;
+        private $link;
         private $note;
         private $imageSmall;
         private $imageMedium;
-        private $link;
+        
 
 
 
@@ -31,19 +32,19 @@
          * @param string $synopsis
          * @param string $note
          * @param string $link
-         * @param array  $dataImage
+         * @param string $imageSmall
+         * @param string $imageMedium
+         * @param string $idWidget
+         * @param int $idImage
          */
-        public function __construct( $title, $synopsis, $note, $link, $dataImage )
+        public function __construct( $title, $synopsis, $note, $link, $imageSmall, $imageMedium, $idWidget, $idImage )
         {
-            // Are replaced or eliminated all non-ASCII characters:
-            $this->title         = preg_replace( '/[^(\x20-\x7F)]*/', '', htmlentities($title) );
-            $this->synopsis      = preg_replace( '/[^(\x20-\x7F)]*/', '', htmlentities($synopsis) );
-
+            $this->title         = $title;
+            $this->synopsis      = $synopsis;
             $this->note          = $note;
             $this->link          = $link;
-
-            $this->imageSmall    = $this->downloadImage( $dataImage['urlImage']                                    , $dataImage['idWidget'], $dataImage['idImage'], "s" );
-            $this->imageMedium   = $this->downloadImage( str_replace( "small" , "full"  ,  $dataImage['urlImage'] ), $dataImage['idWidget'], $dataImage['idImage'], "m" );
+            $this->imageSmall    = $this->downloadImage( $imageSmall,  $idWidget, $idImage, "s" );
+            $this->imageMedium   = $this->downloadImage( $imageMedium, $idWidget, $idImage, "m" );
         }
 
 

@@ -6,7 +6,7 @@
 
    Project:    WordPress FilmAffinity Widget
    File:       /css/widget-style.css
-   Date:       28/03/2013
+   Date:       14/04/2013
 */
 
 
@@ -68,19 +68,24 @@
 }
 
 .popup:hover .content {
-	visibility:visible;
+    visibility:visible;
 }
 
 .popup div.content h1{
+    color:black;
     font-size: 1.4em;
-    margin-bottom:15px;
+    margin: 0 0 15px 0;
+    padding:0;
 }
 
 .popup div.content img{
     float: left;
     margin-right: 10px;
+    max-height:173px;
+    max-width: 128px;
 }
 
 .popup div.content p{
+    color:black;
     margin:-5px 0 0 0;
 }

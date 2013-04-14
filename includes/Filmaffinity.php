@@ -7,7 +7,7 @@
 
    Project:    WordPress FilmAffinity Widget
    File:       \includes\Filmaffinity.php
-   Date:       28/03/2013
+   Date:       14/04/2013
 */
 ?>
 <?php
@@ -150,11 +150,13 @@
         {
             if( $this->page )
             {
-                $title = "";
-                $synopsis = "";
-                $note = "";
-                $image = "";
-                $link = "";
+                $title       = "";
+                $synopsis    = "";
+                $note        = "";
+                $link        = "";
+                $imageSmall  = "";
+                $imageMedium = "";
+
 
 
                 $result = $this->page->find("div[id=amovies_cont] > table.amovie_info");
@@ -162,48 +164,38 @@
                 foreach( $result as $countFilm => $res )
                 {
                     // Title:
-                    $title = $res->find("a.ntext", 0)->innertext;
-
-                    // Link:
-                    $link = "http://www.filmaffinity.com" . $res->find('a.ntext', 0)->href;
+                    $title = $res->find("a.mc-title", 0)->plaintext;
 
                     // Note:
-                    $note = $res->find("tbody > tr > td > div > div", 1)->innertext;
+                    $note = $res->find("tbody > tr > td > div > div", 0)->plaintext;
 
-                    // Film Image:
-                    $image = $res->find("img", 0)->src;
+                    // Link:
+                    $link = "http://www.filmaffinity.com" . $res->find('a.mc-title', 0)->href;
 
-                    // Synopsis:
+                    // Film Small Image:
+                    $imageSmall = $res->find("img", 0)->src;
+
+
+                    // More info:
                     if( $isGetDescription )
                     {
-                        $result2 = file_get_html($link)->find("table#mcardtable > tbody > tr");
+                        $result2 = file_get_html($link);
 
-                        foreach( $result2 as $res2 )
-                        {
-                            $th = "";
-                            $td = "";
+                        // Synopsis:
+                        $synopsis = $result2->find("#left-column > dl.movie-info > dd[style]", 0)->plaintext;
 
-                            if( isset($res2->children(0)->innertext) )
-                                $th = $res2->children(0)->innertext;
-
-                            if( isset($res2->children(1)->innertext) )
-                                $td = $res2->children(1)->innertext;
-
-                            if( !strcmp($th ,"SINOPSIS") )
-                            {
-                                $synopsis = $td;
-                                break;
-                            }
-                        }
+                        // Film Medium Image:
+                        $imageMedium = $result2->find("#movie-main-image-container", 0)->find("img", 0)->src;
                     }
 
 
                     // It creates a new movie with the data read:
-                    $films[$countFilm] = new Film( $title, $synopsis, $note, $link, array('urlImage'=>$image, 'idWidget'=>$idWidget, 'idImage'=>$countFilm+1) );
+                    $films[$countFilm] = new Film( $title, $synopsis, $note, $link, $imageSmall, $imageMedium, $idWidget, $countFilm+1 );
                     $countFilm = $countFilm + 1;
 
                     if( $countFilm == $numFilms || $countFilm == 22 )
                         return $films;
+
                 }
             }
         }
@@ -223,11 +215,12 @@
         {
             if( $this->page )
             {
-                $title = "";
-                $synopsis = "";
-                $note = "";
-                $image = "";
-                $link = "";
+                $title       = "";
+                $synopsis    = "";
+                $note        = "";
+                $link        = "";
+                $imageSmall  = "";
+                $imageMedium = "";
 
 
                 // All notes are obtained:
@@ -251,13 +244,13 @@
                 foreach( $result as $countFilm => $res )
                 {
                     // Title:
-                    $title = $this->page->find("a.ntext", $countFilm)->innertext;
-
-                    // Link:
-                    $link = "http://www.filmaffinity.com" . $this->page->find('a.ntext', $countFilm)->href;
+                    $title = $this->page->find("a.ntext", $countFilm)->plaintext;
 
                     // Note:
                     $note = $allNotes[$countFilm];
+                    
+                    // Link:
+                    $link = "http://www.filmaffinity.com" . $this->page->find('a.ntext', $countFilm)->href;                    
 
                     // Film Image:
                     $image = $this->page->find("div.movie-card-7 > table > tbody > tr > td > a > img", $countFilm)->src;
@@ -272,11 +265,11 @@
                             $th = "";
                             $td = "";
 
-                            if( isset($res2->children(0)->children(0)->innertext) )
-                                $th = $res2->children(0)->children(0)->innertext;
+                            if( isset($res2->children(0)->children(0)->plaintext) )
+                                $th = $res2->children(0)->children(0)->plaintext;
 
-                            if( isset($res2->children(1)->innertext) )
-                                $td = $res2->children(1)->innertext;
+                            if( isset($res2->children(1)->plaintext) )
+                                $td = $res2->children(1)->plaintext;
 
                             if( !strcmp($th ,"SYNOPSIS/PLOT") )
                             {
@@ -288,7 +281,7 @@
 
 
                     // It creates a new movie with the data read:
-                    $films[$countFilm] = new Film( $title, $synopsis, $note, $link, array('urlImage'=>$image, 'idWidget'=>$idWidget, 'idImage'=>$countFilm+1) );
+                    $films[$countFilm] = new Film( $title, $synopsis, $note, $link, $imageSmall, str_replace("small","full",$imageSmall), $idWidget, $countFilm+1 );
                     $countFilm = $countFilm + 1;
 
                     if( $countFilm == $numFilms || $countFilm == 22 )
