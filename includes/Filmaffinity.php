@@ -7,7 +7,7 @@
 
    Project:    WordPress FilmAffinity Widget
    File:       \includes\Filmaffinity.php
-   Date:       14/04/2013
+   Date:       16/04/2013
 */
 ?>
 <?php
@@ -182,7 +182,17 @@
                         $result2 = file_get_html($link);
 
                         // Synopsis:
-                        $synopsis = $result2->find("#left-column > dl.movie-info > dd[style]", 0)->plaintext;
+                        $dt = $result2->find("#left-column > dl.movie-info > dt");//->plaintext;
+                        $dd = $result2->find("#left-column > dl.movie-info > dd");//->plaintext;
+                        
+                        foreach( $dt as $i=>$text )
+                        {
+                            if( !strcmp($text->plaintext, "Sinopsis") )
+                            {
+                                $synopsis = $dd[$i]->plaintext;
+                                break;
+                            }
+                        }
 
                         // Film Medium Image:
                         $imageMedium = $result2->find("#movie-main-image-container", 0)->find("img", 0)->src;
