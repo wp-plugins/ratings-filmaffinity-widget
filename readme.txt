@@ -68,6 +68,9 @@ No. With each update there that get data from FilmAfinity, if you refresh too of
 = ¿Se pueden actualizar las peliculas del widget con más frecuencia? =
 No. Con cada actualizacion hay que obtener todos los datos de FilmAffinity, si se actualizase muy a menudo podria haber problemas.
 
+= Después de actualizar el plugin a una nueva versión no aparecen las caratulas. =
+Tiene razón, es un fallo que tengo que mejorar. Por ahora para solucionarlo basta con cambiar de idioma en las opciones de widget: Cambie de idioma, guarde, vuelva a cambiar de idioma y guarde de nuevo. La información se actualizara y saldrá correctamente.
+
 
 
 == Screenshots ==
