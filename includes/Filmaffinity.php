@@ -7,7 +7,7 @@
 
    Project:    WordPress FilmAffinity Widget
    File:       \includes\Filmaffinity.php
-   Date:       16/04/2013
+   Date:       27/04/2013
 */
 ?>
 <?php
@@ -164,13 +164,13 @@
                 foreach( $result as $countFilm => $res )
                 {
                     // Title:
-                    $title = $res->find("a.mc-title", 0)->plaintext;
+                    $title = $res->find("div.mc-title > a", 0)->plaintext;
 
                     // Note:
-                    $note = $res->find("tbody > tr > td > div > div", 0)->plaintext;
+                    $note = $res->find("tbody > tr > td > div > div", 6)->plaintext;
 
                     // Link:
-                    $link = "http://www.filmaffinity.com" . $res->find('a.mc-title', 0)->href;
+                    $link = "http://www.filmaffinity.com" . $res->find('div.mc-title > a', 0)->href;
 
                     // Film Small Image:
                     $imageSmall = $res->find("img", 0)->src;
