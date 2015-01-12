@@ -1,4 +1,4 @@
-=== Ratings FilmAffinity Widget ===
+=== Ratings FilmAffinity Widget (Deprecated) ===
 Contributors: giltesa
 Donate link: http://giltesa.com
 Tags: Filmaffinity, widget, Ratings, Film, Movie
